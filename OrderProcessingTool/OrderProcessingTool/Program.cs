@@ -116,6 +116,17 @@ namespace OrderProcessingTool
         }
     }
 
+    class Other : PhysicalProduct
+    {
+        public Other(string name)
+        {
+            ItemName = name;
+            Operations = new List<string>();
+            base.GetSlip();
+            base.AddCommission();
+        }
+    }
+
     public class OrderProcessor
     {
         public static Product ConvertInputToType(string[] input)
@@ -153,7 +164,12 @@ namespace OrderProcessingTool
                         product = new Book(name);
                         break;
                     }
-
+                case ProductTypes.Other:
+                default:
+                    {
+                        product = new Other(name);
+                        break;
+                    }
             }
             return product;
         }

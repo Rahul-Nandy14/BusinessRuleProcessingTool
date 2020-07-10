@@ -1,0 +1,13 @@
+C:\Users\mv835e\Documents\GitHub\yahoo\Order Processing tool\BusinessRuleProcessingTool\OrderProcessingTool\OrderProcessingTool\bin\Debug\netcoreapp3.1\OrderProcessingTool.exe
+C:\Users\mv835e\Documents\GitHub\yahoo\Order Processing tool\BusinessRuleProcessingTool\OrderProcessingTool\OrderProcessingTool\bin\Debug\netcoreapp3.1\OrderProcessingTool.deps.json
+C:\Users\mv835e\Documents\GitHub\yahoo\Order Processing tool\BusinessRuleProcessingTool\OrderProcessingTool\OrderProcessingTool\bin\Debug\netcoreapp3.1\OrderProcessingTool.runtimeconfig.json
+C:\Users\mv835e\Documents\GitHub\yahoo\Order Processing tool\BusinessRuleProcessingTool\OrderProcessingTool\OrderProcessingTool\bin\Debug\netcoreapp3.1\OrderProcessingTool.runtimeconfig.dev.json
+C:\Users\mv835e\Documents\GitHub\yahoo\Order Processing tool\BusinessRuleProcessingTool\OrderProcessingTool\OrderProcessingTool\bin\Debug\netcoreapp3.1\OrderProcessingTool.dll
+C:\Users\mv835e\Documents\GitHub\yahoo\Order Processing tool\BusinessRuleProcessingTool\OrderProcessingTool\OrderProcessingTool\bin\Debug\netcoreapp3.1\OrderProcessingTool.pdb
+C:\Users\mv835e\Documents\GitHub\yahoo\Order Processing tool\BusinessRuleProcessingTool\OrderProcessingTool\OrderProcessingTool\obj\Debug\netcoreapp3.1\OrderProcessingTool.csprojAssemblyReference.cache
+C:\Users\mv835e\Documents\GitHub\yahoo\Order Processing tool\BusinessRuleProcessingTool\OrderProcessingTool\OrderProcessingTool\obj\Debug\netcoreapp3.1\OrderProcessingTool.AssemblyInfoInputs.cache
+C:\Users\mv835e\Documents\GitHub\yahoo\Order Processing tool\BusinessRuleProcessingTool\OrderProcessingTool\OrderProcessingTool\obj\Debug\netcoreapp3.1\OrderProcessingTool.AssemblyInfo.cs
+C:\Users\mv835e\Documents\GitHub\yahoo\Order Processing tool\BusinessRuleProcessingTool\OrderProcessingTool\OrderProcessingTool\obj\Debug\netcoreapp3.1\OrderProcessingTool.csproj.CoreCompileInputs.cache
+C:\Users\mv835e\Documents\GitHub\yahoo\Order Processing tool\BusinessRuleProcessingTool\OrderProcessingTool\OrderProcessingTool\obj\Debug\netcoreapp3.1\OrderProcessingTool.dll
+C:\Users\mv835e\Documents\GitHub\yahoo\Order Processing tool\BusinessRuleProcessingTool\OrderProcessingTool\OrderProcessingTool\obj\Debug\netcoreapp3.1\OrderProcessingTool.pdb
+C:\Users\mv835e\Documents\GitHub\yahoo\Order Processing tool\BusinessRuleProcessingTool\OrderProcessingTool\OrderProcessingTool\obj\Debug\netcoreapp3.1\OrderProcessingTool.genruntimeconfig.cache
