@@ -13,8 +13,8 @@ namespace OrderProcessingTool
 
     public abstract class NonPhysicalProduct
     {
-        protected List<string> Operations;
-        protected string ItemName;
+        public List<string> Operations;
+        public string ItemName;
         public abstract void GetSlip();
         public virtual void DropMail()
         {
@@ -24,7 +24,7 @@ namespace OrderProcessingTool
 
     }
 
-    class Video : NonPhysicalProduct
+    public class Video : NonPhysicalProduct
     {
         public Video(string videoName)
         {
@@ -41,6 +41,13 @@ namespace OrderProcessingTool
                 Operations.Add("'First Aid' video added to the packing slip");
                 Console.WriteLine("'First Aid' video added to the packing slip");
             }
+        }
+    }
+
+    public class Membership : NonPhysicalProduct
+    {
+        public Membership()
+        {
         }
     }
 }

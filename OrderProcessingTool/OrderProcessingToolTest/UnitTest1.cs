@@ -22,5 +22,13 @@ namespace OrderProcessingToolTest
             Assert.AreEqual("Generated a packing slip.", v.Operations[0]);
             Assert.AreEqual(2, v.Operations.Count);
         }
+
+        [TestMethod]
+        public void ShouldReturnMembershipSlip()
+        {
+            Membership m = new Membership();
+            Assert.AreEqual(3, m.Operations.Count);
+
+        }
     }
 }
