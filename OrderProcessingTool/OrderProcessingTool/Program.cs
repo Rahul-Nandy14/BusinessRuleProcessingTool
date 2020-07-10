@@ -11,15 +11,36 @@ namespace OrderProcessingTool
         }
     }
 
-    public class Video 
+    public abstract class NonPhysicalProduct
     {
-        public List<string> Operations;
-        public string ItemName;
+        protected List<string> Operations;
+        protected string ItemName;
+        public abstract void GetSlip();
+        public virtual void DropMail()
+        {
+            Operations.Add("Mail Sent");
+            Console.WriteLine("Mail Sent");
+        }
+
+    }
+
+    class Video : NonPhysicalProduct
+    {
         public Video(string videoName)
         {
             Operations = new List<string>();
             ItemName = videoName;
-            Console.WriteLine("'First Aid' video added to the packing slip");            
+
+        }
+        public override void GetSlip()
+        {
+            if (ItemName.ToLower().Equals("learning to ski"))
+            {
+                Operations.Add("Generated a packing slip.");
+                Console.WriteLine("Generated a packing slip.");
+                Operations.Add("'First Aid' video added to the packing slip");
+                Console.WriteLine("'First Aid' video added to the packing slip");
+            }
         }
     }
 }
