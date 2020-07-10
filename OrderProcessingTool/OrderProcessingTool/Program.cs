@@ -26,9 +26,13 @@ namespace OrderProcessingTool
 
     public abstract class NonPhysicalProduct
     {
-        public List<string> Operations;
-        public string ItemName;
-        public abstract void GetSlip();
+        public string ItemName { get; set; }
+        public List<string> Operations { get; set; }
+        public virtual void GetSlip()
+        {
+            Operations.Add("Generated a packing slip.");
+            Console.WriteLine("Generated a packing slip.");
+        }
         public virtual void DropMail()
         {
             Operations.Add("Mail Sent");
@@ -37,41 +41,45 @@ namespace OrderProcessingTool
 
     }
 
-    public class Video : NonPhysicalProduct
+    class Video : NonPhysicalProduct
     {
         public Video(string videoName)
         {
             Operations = new List<string>();
             ItemName = videoName;
 
+            GetSlip();
         }
         public override void GetSlip()
         {
+            base.GetSlip();
             if (ItemName.ToLower().Equals("learning to ski"))
             {
-                Operations.Add("Generated a packing slip.");
-                Console.WriteLine("Generated a packing slip.");
                 Operations.Add("'First Aid' video added to the packing slip");
                 Console.WriteLine("'First Aid' video added to the packing slip");
             }
         }
     }
-
-    public class Membership : NonPhysicalProduct
+    class Membership : NonPhysicalProduct
     {
         public Membership()
         {
             Operations = new List<string>();
-            GetSlip();
+            base.GetSlip();
             Operations.Add("Activate that membership");
             Console.WriteLine("Activate that membership");
             base.DropMail();
         }
-
-        public override void GetSlip()
+    }
+    class Upgrade : NonPhysicalProduct
+    {
+        public Upgrade()
         {
-            Operations.Add("Generated a packing slip for shipping.");
-            Console.WriteLine("Generated a packing slip for shipping.");
+            Operations = new List<string>();
+            base.GetSlip();
+            Operations.Add("Apply the upgrade");
+            Console.WriteLine("Apply the upgrade");
+            base.DropMail();
         }
     }
 
@@ -97,7 +105,17 @@ namespace OrderProcessingTool
                         product = new Membership();
                         break;
                     }
-                
+                case ProductTypes.Upgrade:
+                    {
+                        product = new Upgrade();
+                        break;
+                    }
+                case ProductTypes.Video:
+                    {
+                        product = new Video(name);
+                        break;
+                    }
+
                 default:
                     {
                         break;
