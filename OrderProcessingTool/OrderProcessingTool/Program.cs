@@ -1,13 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using static OrderProcessingTool.Program;
 
 namespace OrderProcessingTool
 {
     public class Program
     {
+        public enum ProductTypes
+        {
+            Video,
+            Membership,
+            Upgrade,
+            Book,
+            Other
+        }
         static void Main(string[] args)
         {
-            Video video = new Video("abcd");
+            Console.WriteLine("Enter Product type and name (if applicable) seperated by space");
+            var input = Console.ReadLine().Split(' ');
+            var output = OrderProcessor.ConvertInputToType(input);
+            Console.WriteLine("Item Name : {0} Operations : {1}", output.ItemName, string.Join(' ', output.Operations));
+            Console.ReadLine();
         }
     }
 
@@ -59,6 +72,38 @@ namespace OrderProcessingTool
         {
             Operations.Add("Generated a packing slip for shipping.");
             Console.WriteLine("Generated a packing slip for shipping.");
+        }
+    }
+
+    public class OrderProcessor
+    {
+        public static NonPhysicalProduct ConvertInputToType(string[] input)
+        {
+            ProductTypes type;
+            try
+            {
+                type = (ProductTypes)Enum.Parse(typeof(ProductTypes), input[0], ignoreCase: true);
+            }
+            catch (Exception e)
+            {
+                type = ProductTypes.Other;
+            }
+            NonPhysicalProduct product=null;
+            string name = input.Length > 1 ? string.Join(' ', input, 1, input.Length - 1) : string.Empty;
+            switch (type)
+            {
+                case ProductTypes.Membership:
+                    {
+                        product = new Membership();
+                        break;
+                    }
+                
+                default:
+                    {
+                        break;
+                    }
+            }
+            return product;
         }
     }
 }
