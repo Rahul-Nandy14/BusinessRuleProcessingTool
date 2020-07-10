@@ -13,5 +13,14 @@ namespace OrderProcessingToolTest
             Assert.AreEqual("abcd", v.ItemName);
             Assert.AreEqual("Generated a packing slip.", v.Operations[0]);
         }
+
+        [TestMethod]
+        public void ShouldReturnVideoLearningToSkiSlipOnly()
+        {
+            Video v = new Video("Learning To Ski");
+            Assert.AreEqual("abcd", v.ItemName);
+            Assert.AreEqual("Generated a packing slip.", v.Operations[0]);
+            Assert.AreEqual(2, v.Operations.Count);
+        }
     }
 }
