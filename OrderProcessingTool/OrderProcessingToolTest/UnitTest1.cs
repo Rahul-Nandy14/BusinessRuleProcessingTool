@@ -1,13 +1,17 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OrderProcessingTool;
 
 namespace OrderProcessingToolTest
 {
     [TestClass]
-    public class UnitTest1
-    {
+    public class OderEngineProcessingUnitTest
+    {        
         [TestMethod]
-        public void TestMethod1()
+        public void ShouldReturnVideoSlipOnlyFromOderProcessingUnitTest()
         {
+            Video v = new Video("abcd");
+            Assert.AreEqual("abcd", v.ItemName);
+            Assert.AreEqual("Generated a packing slip.", v.Operations[0]);
         }
     }
 }
