@@ -59,5 +59,21 @@ namespace OrderProcessingToolTest
             Assert.AreEqual(3, result.Operations.Count);
 
         }
+
+        [TestMethod]
+        public void ShouldReturnOther()
+        {
+            var result = OrderProcessor.ConvertInputToType(new string[] { "other", "Random" });
+            Assert.AreEqual("Random", result.ItemName);
+            Assert.AreEqual("Generated a packing slip for shipping.", result.Operations[0]);
+            Assert.AreEqual("Commission payment to the agent", result.Operations[1]);
+            Assert.AreEqual(2, result.Operations.Count);
+
+            result = OrderProcessor.ConvertInputToType(new string[] { "random", "Random" });
+            Assert.AreEqual("Random", result.ItemName);
+            Assert.AreEqual("Generated a packing slip for shipping.", result.Operations[0]);
+            Assert.AreEqual("Commission payment to the agent", result.Operations[1]);
+            Assert.AreEqual(2, result.Operations.Count);
+        }
     }
 }
