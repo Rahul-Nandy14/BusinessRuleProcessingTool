@@ -48,6 +48,17 @@ namespace OrderProcessingTool
     {
         public Membership()
         {
+            Operations = new List<string>();
+            GetSlip();
+            Operations.Add("Activate that membership");
+            Console.WriteLine("Activate that membership");
+            base.DropMail();
+        }
+
+        public override void GetSlip()
+        {
+            Operations.Add("Generated a packing slip for shipping.");
+            Console.WriteLine("Generated a packing slip for shipping.");
         }
     }
 }

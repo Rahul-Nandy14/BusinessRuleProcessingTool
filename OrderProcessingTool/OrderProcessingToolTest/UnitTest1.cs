@@ -27,6 +27,9 @@ namespace OrderProcessingToolTest
         public void ShouldReturnMembershipSlip()
         {
             Membership m = new Membership();
+            Assert.AreEqual("Generated a packing slip.", m.Operations[0]);
+            Assert.AreEqual("Activate that membership", m.Operations[1]);
+            Assert.AreEqual("Mail Sent", m.Operations[2]);
             Assert.AreEqual(3, m.Operations.Count);
 
         }
