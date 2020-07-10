@@ -24,11 +24,28 @@ namespace OrderProcessingTool
         }
     }
 
-    public abstract class NonPhysicalProduct
+    public abstract class Product
     {
         public string ItemName { get; set; }
         public List<string> Operations { get; set; }
-        public virtual void GetSlip()
+        public abstract void GetSlip();
+    }
+    public abstract class PhysicalProduct : Product
+    {
+        public override void GetSlip()
+        {
+            Operations.Add("Generated a packing slip for shipping.");
+            Console.WriteLine("Generated a packing slip for shipping.");
+        }
+        public virtual void AddCommission()
+        {
+            Operations.Add("Commission payment to the agent");
+            Console.WriteLine("Commission payment to the agent");
+        }
+    }
+    public abstract class NonPhysicalProduct : Product
+    {
+        public override void GetSlip()
         {
             Operations.Add("Generated a packing slip.");
             Console.WriteLine("Generated a packing slip.");
@@ -82,10 +99,26 @@ namespace OrderProcessingTool
             base.DropMail();
         }
     }
+    class Book : PhysicalProduct
+    {
+        public Book(string itemName)
+        {
+            ItemName = itemName;
+            Operations = new List<string>();
+            base.GetSlip();
+            base.AddCommission();
+            GetSlip();
+        }
+        public override void GetSlip()
+        {
+            Operations.Add("Create a duplicate packing slip for the royalty department.");
+            Console.WriteLine("Create a duplicate packing slip for the royalty department.");
+        }
+    }
 
     public class OrderProcessor
     {
-        public static NonPhysicalProduct ConvertInputToType(string[] input)
+        public static Product ConvertInputToType(string[] input)
         {
             ProductTypes type;
             try
@@ -96,7 +129,7 @@ namespace OrderProcessingTool
             {
                 type = ProductTypes.Other;
             }
-            NonPhysicalProduct product=null;
+            Product product = null;
             string name = input.Length > 1 ? string.Join(' ', input, 1, input.Length - 1) : string.Empty;
             switch (type)
             {
@@ -115,9 +148,9 @@ namespace OrderProcessingTool
                         product = new Video(name);
                         break;
                     }
-
-                default:
+                case ProductTypes.Book:
                     {
+                        product = new Book(name);
                         break;
                     }
             }
